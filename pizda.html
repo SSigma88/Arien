@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A-Frame сцена — Виправлений Тор</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body style="margin: 0;">
+
+  <a-scene background="color: #4a4a4a">
+    <a-assets>
+      <img
+        id="floorTexture"
+        src="Cwetok.jpg"
+        crossorigin="anonymous"
+      >
+    </a-assets>
+
+    <a-sky color="#4a4a4a"></a-sky>
+
+    <a-light type="ambient" color="#bbbbbb" intensity="1"></a-light>
+    <a-light type="directional" color="#ffffff" intensity="0.8" position="0 4 2" rotation="-45 0 0"></a-light>
+
+    <a-entity id="sceneGroup" position="0 0 0" rotation="0 0 0" scale="1 1 1">
+
+      <a-plane
+        src="#floorTexture"
+        width="7"
+        height="7"
+        rotation="-55 0 0"
+        position="-2 -2 -5"
+        color="purple">
+      </a-plane>
+
+      <a-plane
+        width="9"
+        height="2"
+        position="3 1 -9"
+        color="white">
+      </a-plane>
+
+      <a-text class="text-muted"
+        value="Pisun"
+        color="black"
+        width="10"
+        align="center"
+        position="3 1 -8.95">
+      </a-text>
+
+      <a-cylinder
+        color="yellow"
+        height="2"
+        radius="0.05"
+        position="-2 -1 -5">
+      </a-cylinder>
+
+      <a-cylinder
+        color="blue"
+        height="2"
+        radius="0.05"
+        position="-3 -1 -5">
+      </a-cylinder>
+
+      <a-torus
+        position="-2 1 -5"
+        color="green"
+        radius="1.2"
+        radius-tubular="0.2"
+        rotation="0 0 0"
+        animation="property: components.material.material.color; type: color; from: green; to: #3cff00; dir: alternate; loop: true; dur: 6000"
+        animation__spin="property: rotation; to: 0 0 360; loop: true; dur: 12000; easing: linear">
+      </a-torus>
+
+      <a-torus-knot
+        color="orange"
+        radius="1.2"
+        radius-tubular="0.3" 
+        p="2"
+        q="3"
+        position="-3.5 1 -5"
+        rotation="0 0 0"
+        animation="property: rotation; to: 0 360 360; loop: true; dur: 10000; easing: linear"
+        animation__color="property: components.material.material.color; type: color; from: orange; to: gold; dir: alternate; loop: true; dur: 5000">
+      </a-torus-knot>
+
+    </a-entity>
+
+    <a-camera position="0 1.6 0"></a-camera>
+  </a-scene>
+
+</body>
+</html>
